@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+         <context:component-scan
+            base-package="com.ublblog.controller"/> 
+
+
+    <mvc:annotation-driven />
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+	        <property name="prefix" value="/WEB-INF/view/"/>
+	        <property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 拦截器 -->
+	<mvc:interceptors> 
+		<mvc:interceptor> 
+			<mvc:mapping path="/admin/*" /> 
+			<mvc:mapping path="/admin/*/*" /> 
+			<mvc:mapping path="/ucenter/*" /> 
+			<bean class="com.ublblog.controller.interceptor.UserAuthInterceptor" /> 
+		</mvc:interceptor> 
+	</mvc:interceptors>
+	
+	<!-- Freemarker 视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	   <property name="prefix" value=""/>
+	   <property name="order" value="0"/>
+	   <property name="cache" value="true"/>
+	   <property name="contentType" value="text/html; charset=UTF-8"/>
+	</bean>
+	
+	<!-- Freemarker configuration -->
+	<!-- Freemarker 文件放在目录 WEB-INF/view/ftl 下 -->
+	<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	   <property name="templateLoaderPath" value="/WEB-INF/view/ftl/"/>
+	   <property name="freemarkerSettings">
+	       <props>
+	           <prop key="defaultEncoding">UTF-8</prop>
+	       </props>
+	   </property>
+	</bean>
+
+</beans>

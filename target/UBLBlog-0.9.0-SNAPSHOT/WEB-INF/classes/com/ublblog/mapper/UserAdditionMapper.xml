@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ublblog.dao.UserDao">
+    
+
+	<sql id="userColumns">
+		ID,
+		name,
+		password,
+		show_name AS showName,
+		email,
+		description,
+		image
+	</sql>
+	
+	<!-- 更新用户信息 -->
+	<update id="updateUserinfo" parameterType="com.ublblog.model.User">
+		UPDATE tb_user SET
+		<trim prefix="" suffix="" prefixOverrides="" suffixOverrides=",">
+		<if test="showName != null and showName != '' ">
+			show_name=#{showName}
+		</if>		
+		<if test="email != null and email != '' ">
+			,email=#{email}
+		</if>	
+		<if test="description != null and description != '' ">
+			,description=#{description}
+		</if>
+		<if test="image != null and image != '' ">
+			,image=#{image}
+		</if>
+		<if test="name != null and name != '' ">
+			,name=#{name}
+		</if>	
+		<if test="password != null and password != '' ">
+			,password=#{password}
+		</if>		
+		</trim>			
+		WHERE id=#{id}	
+	</update>
+</mapper>
