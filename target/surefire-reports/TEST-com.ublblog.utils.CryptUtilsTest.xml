@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.ublblog.utils.CryptUtilsTest" time="0" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.ublblog.utils.CryptUtilsTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib"/>
@@ -24,9 +24,10 @@
     <property name="java.io.tmpdir" value="/var/folders/f3/fvk1mn3505bgfzj83w5y8s_h0000gn/T/"/>
     <property name="line.separator" value="
 "/>
+    <property name="socksProxyPort" value="1080"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf7406910303324591955.tmp"/>
+    <property name="classworlds.conf" value="/Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf78775987207452912.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/bellchet58/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -40,6 +41,7 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="bellchet58"/>
     <property name="java.class.path" value="/Users/bellchet58/Downloads/sts-bundle/STS.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_1.6.2.20150902-0001/jars/plexus-classworlds-2.5.2.jar"/>
+    <property name="socksProxyHost" value="127.0.0.1"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre"/>
@@ -59,5 +61,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.ublblog.utils.CryptUtilsTest" name="testEncrypt" time="0"/>
+  <testcase classname="com.ublblog.utils.CryptUtilsTest" name="testEncrypt" time="0.001"/>
 </testsuite>

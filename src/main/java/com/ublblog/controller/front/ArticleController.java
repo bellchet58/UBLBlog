@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,7 +43,7 @@ public class ArticleController extends BaseController{
         //如果分类ID不为空的话，那么按文章分类检索文章，跳转至article_list页面
         if (cat != null) {
         	//改变分页数量
-        	page.setPageSize(15);
+        	page.setPageSize(10);
             article = new Article();
             article.setCategory(cat);
             response = new ModelAndView("/article_list");
@@ -64,7 +65,6 @@ public class ArticleController extends BaseController{
         response.addObject("page", pageInfo);        
         //添加内容导航列表
         addContentNavList(response,pageNum);
-        
         return response;
     }
 	
@@ -82,7 +82,7 @@ public class ArticleController extends BaseController{
         
         List<ArticleDto> articles = null;
         
-        int pageSize = 15;
+        int pageSize = 10;
         
         pageNum = (pageNum==null||pageNum==0)?1:pageNum;
         //其他页面
@@ -119,15 +119,11 @@ public class ArticleController extends BaseController{
      * @see [类、类#方法、类#成员]
      */
     @RequestMapping("/list")
-    public ModelAndView articleList(Page<ArticleDto> page, Integer tagId) {
+    public ModelAndView articleList(Integer num, Integer tagId) {
         
         ModelAndView response = new ModelAndView("/article_list");
         List<ArticleDto> data = null;
-        PageInfo<ArticleDto> pageInfo = new PageInfo<ArticleDto>(page);
-        int pageNum = page.getPageNum()==0?1:page.getPageNum();
-        if( pageInfo.getPageNum() == 1) {
-            page.setPageSize(15);
-        }
+        int pageNum = num==null?1:num;
         
         try {
         	if (tagId != null) {
@@ -139,6 +135,7 @@ public class ArticleController extends BaseController{
            logger.error("ArticleController." +
            		"articleList();", e.getMessage());
         }
+        PageInfo<ArticleDto> pageInfo = new PageInfo<ArticleDto>(data);
         
         response.addObject("articles", data);
         response.addObject("page", pageInfo);
@@ -149,6 +146,8 @@ public class ArticleController extends BaseController{
         addContentNavList(response,pageNum);
         return response;
     }
+    
+    
     
     /**
      * 检索当前月份的文章列表

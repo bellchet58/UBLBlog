@@ -46,7 +46,7 @@ public class ArticleServiceImpl implements ArticleService{
 	
 	@Override
 	public Page<ArticleDto> getArticles(Article article,int pageNum) throws Exception {
-		int pageSize=15;
+		int pageSize=10;
 		Map<String,Object> param = new HashMap<String,Object>();
 		
 		if (article != null) {

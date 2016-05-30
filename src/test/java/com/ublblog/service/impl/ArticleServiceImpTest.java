@@ -38,20 +38,7 @@ public class ArticleServiceImpTest {
 	@Autowired
 	private ArticleService articleService;
 	
-	@Test
-	public void testPageHelper() {
-		try{
-			PageHelper.startPage(1,1);
-			ArticleExample ae = new ArticleExample();
-			ae.or().andCategoryEqualTo(1);
-			List<Article> list = articleMapper.selectByExample(ae); 
-			assertEquals(1, list.size());
-			assertEquals(2, ((Page<Article>) list).getTotal());
-		}catch(Exception e){
-			fail("sucks");
-		}
-			
-	}
+
 	@Test 
 	public void testHotArticle() throws Exception{
 		List<ArticleDto> list = articleService.getHotArticles(1);

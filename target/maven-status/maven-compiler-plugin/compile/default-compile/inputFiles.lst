@@ -30,6 +30,7 @@
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/utils/RegexpCheckUtils.java
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/controller/front/ArticleController.java
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/service/impl/ArticleTagServiceImpl.java
+/Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/utils/Configure.java
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/dao/ArticleCategoryMapper.java
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/dao/ArticleDao.java
 /Users/bellchet58/Documents/workspace-sts-3.7.3.RELEASE/UBLBlog/src/main/java/com/ublblog/service/ArticleTagService.java
