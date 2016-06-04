@@ -2,7 +2,7 @@
 <#assign i = 1>
 <#list comments as data>
 <div class="comm-li">
-	<img src="${rc.contextPath}/images/header-icon.png"/>	
+	<img src="<#if image??>${image}<#else>${rc.contextPath}/images/header-icon.png</#if>"/>	
 	<div class="comcon">
 	<#if data.comment?exists>
 		<span>

@@ -14,6 +14,8 @@ import com.github.pagehelper.PageInfo;
 import com.ublblog.controller.BaseController;
 import com.ublblog.dto.CommentsDto;
 import com.ublblog.model.ArticleComment;
+import com.ublblog.model.User;
+import com.ublblog.model.UserWithBLOBs;
 import com.ublblog.utils.Configure;
 import com.ublblog.utils.RegexpCheckUtils;
 
@@ -32,14 +34,23 @@ public class ArticleCommentController extends BaseController{
 //        int pageNum = pageInfo.getPageNum()==0?1:pageInfo.getPageNum();
         ModelAndView response = new ModelAndView("/comment");
         List<CommentsDto> comments = null;
+        UserWithBLOBs user = null;
         try {  
             comments = articleCommentService.getArticleComment(articleId, currentPage);
+            for(CommentsDto comment:comments)
+            {
+            	user = new UserWithBLOBs();
+            	user.setName(comment.getComment().getUserName());
+            	user = (UserWithBLOBs) userService.getUser(user);
+            }
+            
         } catch (Exception e) {
             logger.error("ArticleController.getArticleComments();", e.getMessage());
         } 
         PageInfo<CommentsDto> page = new PageInfo<CommentsDto>(comments);
         response.addObject("comments", comments);   
         response.addObject("page", page);  
+        response.addObject("image",user.getImage());
         return response;
     }
     

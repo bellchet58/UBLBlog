@@ -9,7 +9,7 @@
 			<#if page.pageNum == 1>
 				<li class="disabled"><span>上一页</span></li>
 			<#else> 
-				<li><a href="list/tagId=${page.pageNum-1}" name="last">上一页</a></li>		
+				<li><a href="index?num=${page.pageNum-1}" name="last">上一页</a></li>		
 			</#if>
 		</#if>
 	<#else> 
@@ -42,7 +42,7 @@
 	 	<#if (page.pageNum == pageNum) >
 			<li class="active"><a href="javascript:void(0);">${pageNum}</a></li>				
 		<#else> 
-			<li><a href="list/tagId=${pageNum}">${pageNum	}</a></li>							
+			<li><a href="index?num=${pageNum}">${pageNum}</a></li>							
 		</#if>	
 	 </#list>
 	 
@@ -53,7 +53,7 @@
 	<#if (page.pageNum == page.pages) >
 	 	<li class="disabled"><span>下一页 </span></li>							
 	<#else> 
-		 <li ><a name="next" href="list/page=${page}">下一页 </a></li>							
+		 <li ><a name="next" href="index?num=${page.pageNum+1}">下一页 </a></li>							
 	</#if>
 	</ul>
 	</div>

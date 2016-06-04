@@ -28,7 +28,7 @@ public class ArticleController extends BaseController{
 	
 	
 	@RequestMapping("/index")
-    public ModelAndView getArticles(Page<ArticleDto> page, Integer cat) {
+    public ModelAndView getArticles(Integer num, Integer cat) {
         
         ModelAndView response = new ModelAndView("/index");
         //文章实例
@@ -36,14 +36,13 @@ public class ArticleController extends BaseController{
         
         List<ArticleDto> data = null;
         
-        int pageNum = page.getPageNum()==0?1:page.getPageNum();
+        int pageNum = (num== null|| num==0)? 1:num;
         
-        logger.debug("pagenum :{}",page.getPageNum());
+        logger.debug("pagenum :{}",pageNum);
         
         //如果分类ID不为空的话，那么按文章分类检索文章，跳转至article_list页面
         if (cat != null) {
         	//改变分页数量
-        	page.setPageSize(10);
             article = new Article();
             article.setCategory(cat);
             response = new ModelAndView("/article_list");
